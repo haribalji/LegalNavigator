@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Legal Navigator</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body background="justice.jpeg">
+    <center>
+        <h1 style="color:white">Ministry of law and justice<br>Government of India</h1>
+    </center>
+    <form style="color:white">
+        <tr>
+            <td>Language:</td>
+       <select>
+          <option class="button">English</option>
+          <option>Tamil</option>
+          <option>Hindi</option>
+          <option>Malayalam</option>
+          <option>Sanskrit</option>
+          <option>Telugu</option>
+       </select>
+       &nbsp&nbsp&nbsp<a href="fundamental.html" class="button">Fundamental Laws</a>
+       &nbsp&nbsp&nbsp<button><select>
+            <option>
+
+            </option>
+       </select>How can I Complaint</button>
+       &nbsp&nbsp<a href=".html" class="button">Legal services</a>
+       &nbsp&nbsp<a href=".html" class="button">Legal documents</a>
+       <div class="FAQ">
+        <button class="FAQ" id="selectPage">FAQ</button>
+        <div class="FAQ-content">
+            <select>
+               <option value=".html" id="selectPage">What are my rights as a citizen?</option>
+               <option value=".html">How can i file a complaint?</option>
+               <option value=".html">How can i obtain legal documents?</option> </option>
+            </select>
+            <button type="submit">Search</button>
+        </div>
+       </div>
+    </form>
+
+    <div class="search-container">
+        <form id="search-form">
+            <input type="text" id="search-query" placeholder="search">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div id="searchResults">
+        
+    </div>
+    <center>
+        <p>Click the microphone button and say your search</p>
+        <button id="startButton">
+            <img src="mic.png" style="width:40px;height:40px;">
+        </button>
+    </center>
+    <div id="searchResults"></div>
+    <script>
+        if('webkitSpeechRecognition' in window){
+            var recognition=new webkitSpeechRecognition();
+            recognition.continuous=false;
+            recognition.interimResults=false;
+            var startButton=document.getElementById('startButton');
+            var searchResults=document.getElementById('searchResults');
+            startButton.addEventListener('click',function(){
+                recognition.start();
+            }); 
+            recognition.onresult=function(event){
+                var searchQuery=event.results[0][0].transcript;
+                searchResults.innerHTML='<p>Search for: <strong>' + searchQuery + '</strong</p>';
+                window.location.href='https://www.google.com/search?q=' + encodeURIComponent(searchQuery);
+
+            };
+            recognition.onerror=function(event){
+                console.error('Speech recognition error:',event.error);
+            };
+
+        }else{
+            alert('Web Speech API is not supportedin this browser.');
+        }
+    </script>
+    </body>
+    <style>
+        .button{
+            display:inline-block;
+            padding:10px 20px;
+            background-color:white;
+            text-decoration:none;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+        }
+    </style>
+</html>

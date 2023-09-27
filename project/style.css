@@ -1,0 +1,37 @@
+body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+/* search container style */
+.search-container{
+    text-align:center;
+    margin:20px;
+}
+
+/* search input box style */
+#search-query{
+    padding:10px;
+    width:300px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
+}
+
+/* search button style */
+#search-form button{
+    padding:10px 20px;
+    background-color: #007bff;
+    border:none;
+    color:#fff;
+    cursor:pointer;
+    font-size: 16px;
+}
+#search-form button:hover{
+    background-color: #0056b3;
+}
+#search-results{
+    margin:20px;
+    padding:10px;
+    border:1px solid #ccc;
+}
